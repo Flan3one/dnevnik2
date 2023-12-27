@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+
+}
+@font-face {
+    font-family: "StampatelloFaceto" ;
+    src: url(StampatelloFaceto.otf);
+}
+.start{
+    display: flex;
+    padding-top: 40vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(216, 68, 68);
+}
+.start p{
+    color:floralwhite;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    cursor: pointer;  
+    margin-bottom: 45px;
+    font-family:StampatelloFaceto; 
+}
+.start a{
+    color:floralwhite;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    cursor: pointer;    
+    font-family:StampatelloFaceto;
+}
+.start a:hover{
+    text-shadow: 1px 1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px -1px 0 rgb(0, 0, 0);
+    color:  rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    cursor: pointer;    
+}
+.menu
+{
+    position: top;
+    text-align: center;
+    font-size: 25px;
+    padding: 20px;
+    width: 100vw;
+    height: 150px;
+    background-color: rgb(216, 68, 68);
+    font-family:StampatelloFaceto;
+    border-bottom: 3px solid black;
+}
+.menuhead
+{
+    text-align: center;
+    font-size: 45px;
+    color:  rgb(255, 255, 255);
+}
+.menu ul li{ 
+    display: inline; 
+    margin-right: 5px; 
+    padding: 3px;
+}
+.menu ul li a{
+    color:  rgb(255, 255, 255);
+}
+.menu ul li a:hover{
+    text-shadow: 1px 1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px -1px 0 rgb(0, 0, 0);
+    color:  rgb(255, 255, 255);
+}
+.content
+{
+    margin-left: 20px;
+}
+.tabcontent
+{
+    font-family:StampatelloFaceto;
+}
+.tabcontent button
+{
+    font-family:StampatelloFaceto;
+    background-color: rgb(216, 68, 68); 
+    color:#ffffff;
+    border: 0px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 10px;
+}
+.tabcontent input
+{
+    font-family:Arial, sans-serif;
+    font-size: 14px;
+}
+.tabcontent p{
+    margin-top: 20px;
+    font-size: 20px;
+}
+label{
+    color:rgb(216, 68, 68); 
+}
+h1{
+    color:rgb(216, 68, 68);
+}
+table{
+    
+    border-collapse: collapse;
+    border-spacing: 0; 
+    margin-bottom: 50px;
+}
+table td{
+    font-family:Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+    min-height: 19px;
+    border:1px solid rgb(216, 68, 68);
+}
+.profile-pic {
+    width: 200px; height: 200px; border-radius: 100%; 
+    background-image: url('shadow-fiend-zxc.gif');
+    background-size: cover;
+    background-position: center;
+}

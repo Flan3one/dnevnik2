@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru"></html>
+<html xmlns="http://www.w3.org/1999/xhtml"></html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<link rel="stylesheet" href="styles.css">
+<html>
+<head >
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+          l();
+        });
+     </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.min.js"></script>
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Журнал оценок</title>
+<style>
+
+
+</style>
+  <body>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+    <div class="start" id="a0"  >
+        <p>Журнал</p><br>
+        <a href="javascript:void(0)" onclick="start()">Начать работу</a>
+    </div>
+    <div class="main" id="a1" style="display: none;">
+<!--Меню-->    
+    <div id="menu1" class="menu" >
+        <div class="menuhead"><p>Журнал</p></div>
+        <ul>
+            <li><a href="javascript:void(0)" id="a2" onclick="changeColor(this);openTab(event, 'download'); showtable()">Загрузка журнала</a></li>
+            <li><a href="javascript:void(0)" onclick="changeColor(this);openTab(event, 'edit'); showtable() ">Редактирование</a> </li>
+            <li><a href="javascript:void(0)" onclick="changeColor(this);openTab(event, 'stat'); showtable()">Статистика(таблица)</a></li>
+            <li><a href="javascript:void(0)" onclick="changeColor(this);openTab(event, 'graph'); hidetable()">Статистика(график)</a></li>
+            <li><a href="javascript:void(0)" onclick="changeColor(this);openTab(event, 'help'); hidetable()">Помощь</a></li>
+            <li><a href="javascript:void(0)" onclick="changeColor(this);openTab(event, 'about'); hidetable()">О разработчике</a></li>
+        </ul>
+    </div>
+<!--Мен.-->
+<!--контент-->
+<div id="cont" class="content">   
+    <div id="download" class="tabcontent"> 
+        <h1>Загрузка и сохранение журнала<h1>
+        <input type="file" id="fileInput" accept=".csv, .txt, .xlsx">
+        <button onclick="handleFileUpload()">Загрузить</button>
+        <button onclick="downloadCSV()">Скачать</button>
+    </div>
+
+    <div id="edit" class="tabcontent">
+        <h1>Редактировать оценки</h1>
+        <button onclick="addTableData();">Добавить запись</button>
+        <button id="del">Удалить запись</button>
+    
+      </div>
+    
+    
+      <div id="stat" class="tabcontent">
+        <h1>Статистика (таблица)</h1>
+        <input type="text" id="deti" placeholder="Класс">
+        <button onclick="kolvo(); sred(); med(); ">Загрузить статистику</button>
+      <table id="stat3">
+    <tr>
+      <td></td>
+      <td>Информатика</td>
+      <td>Физика</td>
+      <td>Математика</td>
+      <td>Литература</td>
+      <td>Музыка</td>
+    </tr>
+    <tr>
+      <td>Средняя оценка</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Медиана</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+      </table>
+    
+      <table id="stat4">
+        <tr>
+          <td></td>
+          <td>Информатика</td>
+          <td>Физика</td>
+          <td>Математика</td>
+          <td>Литература</td>
+          <td>Музыка</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+          </table>
+      </div>
+    
+    <div id="graph" class="tabcontent">
+        <h1>Статистика (график)</h1>
+        <input type="text" id="deti2" placeholder="Класс">
+        <div style="text-align: center; margin: 0; padding: 0;" id="diagramma">
+            <input type="radio" name="gender" value="dsred" id="dsred">
+            <label for="dsred">Средний балл</label>
+            <input type="radio" name="gender" value="dmed" id="dmed">
+            <label for="dmed">Медиана</label>
+            <input type="radio" name="gender" value="dkolvo" id="dkolvo">
+            <label for="dkolvo">Количество оценок</label>
+            <input type="radio" name="gender" value="dprocent" id="dprocent" >
+            <label for="dprocent">Процент</label>
+        </div>
+            <button onclick="svazat(); drawChart()">Показать график</button>
+            <div class="graficc" id="chart_div" style="width: 1000px; height: 1000px; margin-bottom: 50px;">
+            </div>
+    </div>
+    
+    <div id="help" class="tabcontent">
+      <h3>Помощь</h3>
+      <p>Это приложение для ведения онлайн-журнала оценок.</p>
+      <p>Загрузка журнала - 
+        на этой вкладке пользователь может загрузить оценки из файла формата .csv, .txt, .xlsx.</p>
+      <p>Редактирование журнала - 
+        На этой вкладке пользователь может отредактировать загруженный ранее журнал. <br>
+        Для удаления записи об ученике нужно нажать на кнопку "Удалить запись", а потом мышкой кликнуть на необходимую строку таблицы. 
+        <br>
+        Для редактирования записи необходимо мышкой кликнуть на необходимую строку таблицы. 
+      </p>
+      <p>Статистика - 
+        На этих вкладках пользователь может просмотреть статистику по журналу в табличном и графическом виде.
+      </p>
+      <p>О разработчике - 
+        На этой вкладке пользователь может найти информацию о создателе программы.
+      </p>
+    </div>
+    <div id="about" class="tabcontent">
+      <div class="orazrab">
+        <h3>О разработчике</h3>
+      <p>Калмыков Иван Андреевич</p>
+      <p>Контактные данные: flan3@ro.ru</p>
+      <div class="profile-pic"></div>
+    </div>
+  </div>
+<table id="downloadTable" ></table>
+
+<!--контент-->
+</div>
+<!--СКРИПТЫ-->
+<script>
+    function openTab(evt, tabName) {
+
+
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+  </script>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  drawChart();
+ </script>
+
+  <script src="script.js"></script>   
+<!--СКРИПТЫ--> 
+</body>
+</html>
